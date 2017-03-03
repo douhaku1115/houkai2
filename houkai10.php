@@ -12,14 +12,15 @@ $menus = array('法階昇進関係','住職請願関係','その他');
 </head>
 <header>
     <h1>手続きサポートサイト</h1>
-    <h2>good</h2>
+  
 </header>
 <body>
-<div id="sub_tittle">
-  <?php print('<br>');?>
-  <h1>**メニューから選択してください**</h1>
+
+<div class="box2">
+    <h1>**メニューから選択してください**</h1>
 </div>
-<form action="houkai20.php" method="post">
+
+<form action="houkai50.php" method="post">
   <div class="container">
     <?php
   foreach ($menus as $menu ){
@@ -32,17 +33,21 @@ $menus = array('法階昇進関係','住職請願関係','その他');
   }
 ?>
   </div>
+  
+  <div id="button">
    <?php print('<br />')?>
   <input type="submit" value="次へ" />
+  </div>
 </form>
  
  <div id="branding">
-<p>手続きサポートサイト</p>
+    <p>手続きサポートサイト</p>
 </div>
 
-<div class="box">
-</div>
+<div class="">
 
-<span class="red">文字よ青くなれ</span>
+ </div>
+
+<div class="red">宗務本院</div>
 </body>
 </html>
