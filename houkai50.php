@@ -8,6 +8,44 @@ if (isset($_POST['shorui']) === TRUE) { $_SESSION['shorui[]'] = $_POST['shorui']
 if (isset($_POST['soudoureki']) === TRUE) { $_SESSION['soudoureki'] = $_POST['soudoureki']; }
 if (isset($_POST['age']) === TRUE) { $_SESSION['age'] = $_POST['age']; }
 
+
+$errors=array();                                     //エラー処理
+$opts = array('特住','歴住','再住','前住','住持','東堂','西堂','塔司','座元','首座','蔵主','侍者','沙弥');  //エラー処理
+
+if (isset($_SESSION['houkai_bef'])) {
+  foreach ($opts as $hoka) {
+    if (!in_array($_SESSION['houkai_bef'], $opts)) {
+      $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
+      break;}
+  }
+}else{
+  $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
+}
+
+if (isset($_SESSION['houkai_aft'])) {
+  foreach ($opts as $hoka) {
+    if (!in_array($_SESSION['houkai_aft'], $opts)) {
+      $errors[] = '昇進後の法階をを決められた選択肢の中から選択してください。';
+      break;}
+  }
+}else{
+  $errors[] = '昇進後の法階をを決められた選択肢の中から選択してください。';
+}
+for($i =0;$i < count($opts);$i++){
+  if($opts[$i] == $_SESSION['houkai_bef']) $be=$i;
+   //print('$be');
+ }
+for($i =0;$i < count($opts);$i++){
+  if($opts[$i] == $_SESSION['houkai_aft']) $af=$i;
+  //print('$af');
+  
+}
+if($be <= $af){$errors[] = '入力に間違いがあります。';}  
+
+if (count($errors) > 0) {
+  die(implode('<br />', $errors).
+    '<br />[<a href="houkai40.php">戻る</a>]');
+}
 ?>
 
 <?php
@@ -25,7 +63,7 @@ $temple = new Temple($_SESSION['houkai_bef'],$_SESSION['houkai_aft'],$_SESSION['
 <link href="css.css" rel="stylesheet" type="text/css">
 </head>
 <header>
-    <h1>手続きサポートサイト</h1>
+    <h1>手続きサポートサイト50</h1>
 
 <?php                            
                                  //提出書類

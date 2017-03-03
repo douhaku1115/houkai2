@@ -35,7 +35,7 @@ $menus = array('法階昇進関係','住職請願関係','その他');
 <link href="css.css" rel="stylesheet" type="text/css">
 </head>
 <header>
-    <h1>手続きサポートサイト</h1>
+    <h1>手続きサポートサイト40</h1>
   
 </header>
 <body>
