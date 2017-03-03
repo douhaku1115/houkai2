@@ -30,16 +30,17 @@ $temple = new Temple($_SESSION['houkai_bef'],$_SESSION['houkai_aft'],$_SESSION['
 <?php                            
                                  //提出書類
   print('<dt><br>提出書類</dt>');
-  print($temple->get_houkai_bef());
-  print($temple->get_houkai_aft());
-  print($temple->get_soudoureki());
+  print($temple->get_houkai_bef().'<br>');
+  print($temple->get_houkai_aft().'<br>');
+  print($temple->get_soudoureki().'<br>');
 
 ?>
-
-  
 </header>
 <body>
 
+
+<input type="button" value="前へ" onclick="location.href='houkai40.php'";/>
+<input type="submit" value="次へ" onclick="location.href='houkai60.php'";/>
 
 </body>
 </html>
