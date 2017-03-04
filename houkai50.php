@@ -94,9 +94,10 @@ $sou_soudou ,$sou_age)
   print('<dt><br>提出書類</dt>');
   print($temple->get_houkai_bef().'<br>');
   print($temple->get_houkai_aft().'<br>');
-  
-  print($temple->get_age().'<br>');
-  print($temple->get_soudoureki().'<br>');
+  print('年齢 :'.$temple->get_age().'<br>');
+  print('年齢 :'.$sou_age.'<br>');
+  print('僧堂歴 :'.$temple->get_soudoureki().'<br>');
+  $temple->age_check($temple->get_houkai_aft(),$sou_age);
   
 ?>
 </header>

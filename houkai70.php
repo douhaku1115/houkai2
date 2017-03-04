@@ -16,10 +16,10 @@
     );
     $shorui = array('証明書','副申下付証明書');
     $age = array(
-        array('満27歳以上','27'),
-        array('満25歳以上で住職を請願する者、及び満20歳以上で副住職を請願する者','25'),
-        array('満8歳以上','8'),
-        array('満5歳以上','5'),
+        array('満27歳以上',27),
+        array('満25歳以上で住職を請願する者、及び満20歳以上で副住職を請願する者',25),
+        array('満8歳以上',8),
+        array('満5歳以上',5),
         );
 
 
@@ -73,8 +73,32 @@
     
     function age_check($houkai_aft,$age){
         switch ($houkai_aft){
-            case '特住': int($age) ;
-
+            case '特住':  
+                if($age < 26){print('特住昇進の年齢に達していません<br>');};break;
+            case '歴住':  
+                if($age < 26){print('歴住昇進の年齢に達していません<br>');};break;
+            case '再住':  
+                if($age < 26){print('再住昇進の年齢に達していません<br>');};break;
+            case '前住':  
+                if($age < 26) {print('前住昇進の年齢に達していません<br>');};break;
+            case '住持':  
+                if($age < 26) {print('住持昇進の年齢に達していません<br>');};break;
+            case '東堂':  
+                if($age < 25) {print('法階昇進の年齢に達していません<br>');};break;
+            case '西堂':  
+                if($age < 25) {print('法階昇進の年齢に達していません<br>');};break;
+            case '塔司':  
+                if($age < 25) {print('法階昇進の年齢に達していません<br>');};break;
+            case '座元':  
+                if($age < 25) {print('法階昇進の年齢に達していません<br>');};break;
+            case '首座':  
+                if($age < 7) {print('法階昇進の年齢に達していません<br>');};break;
+            case '蔵主':  
+                if($age < 7) {print('法階昇進の年齢に達していません<br>');};break;
+            case '侍者':  
+                if($age < 7) {print('法階昇進の年齢に達していません<br>');};break;
+            case '沙弥':  
+                if($age < 4) {print('法階昇進の年齢に達していません<br>');};break;            
         }
     }
  }
