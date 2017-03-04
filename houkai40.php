@@ -69,10 +69,10 @@ $menus = array('法階昇進関係','住職請願関係','その他');
   print('僧堂歴を入力してください。');       //僧堂歴の入力
   print('<br><br>');
   for ($i =0;$i < count($soudoureki);$i++){  
-    print('<input type="radio" name="soudoureki" value="'.$soudoureki[$i].'"');
+    print('<input type="radio" name="soudoureki" value="'.$soudoureki[$i][0].'"');
   //  if ($soudoureki[$i] === $_SESSION['soudoureki']) { print(' checked');}
     print(' />');
-    print($soudoureki[$i].'</label><br>');
+    print($soudoureki[$i][0].'</label><br>');
 
   }
 ?>　
