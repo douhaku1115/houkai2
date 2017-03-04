@@ -15,7 +15,14 @@
     array('沙弥','1,000', '200'),
     );
     $shorui = array('証明書','副申下付証明書');
-    $age = array('満27歳以上','満25歳以上で住職を請願する者、及び満20歳以上で副住職を請願する者','満8歳以上','満5歳以上');
+    $age = array(
+        array('満27歳以上','27'),
+        array('満25歳以上で住職を請願する者、及び満20歳以上で副住職を請願する者','25'),
+        array('満8歳以上','8'),
+        array('満5歳以上','5'),
+        );
+
+
 
     $soudoureki = array(
         array('3年以上','30'),
@@ -37,11 +44,12 @@
     private $shorui;   
 
 
-    public function __construct($houkai_bef,$houkai_aft,$soudoureki) {
+    public function __construct($houkai_bef,$houkai_aft,$soudoureki,$age) {
         $this->houkai_bef = $houkai_bef;
         $this->houkai_aft = $houkai_aft;
         //$this->houkai_gizai = $houkai_gizai;
         $this->soudoureki = $soudoureki;
+        $this->age = $age;
     }
     function sethoukai($houkai) {
         $this->houkai = (string)filter_var($houkai);
@@ -58,6 +66,9 @@
      function gethoukai_gizai() {
         return $this->houkai_gizai;
     }  
+    function get_age() {
+        return $this->age;
+    } 
  }
 
 

@@ -61,7 +61,7 @@ if (count($errors) > 0) {
 
 <?php
                                                         //オブジェクト作成
-$temple = new Temple($_SESSION['houkai_bef'],$_SESSION['houkai_aft'],$_SESSION['soudoureki'])
+$temple = new Temple($_SESSION['houkai_bef'],$_SESSION['houkai_aft'],$_SESSION['soudoureki'],$_SESSION['age'])
 
 
 ?>
@@ -81,7 +81,7 @@ $temple = new Temple($_SESSION['houkai_bef'],$_SESSION['houkai_aft'],$_SESSION['
   print($temple->get_houkai_bef().'<br>');
   print($temple->get_houkai_aft().'<br>');
   print($temple->get_soudoureki().'<br>');
-
+  print($temple->get_age().'<br>');
 ?>
 </header>
 <body>

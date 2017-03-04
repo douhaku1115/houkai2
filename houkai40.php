@@ -57,10 +57,10 @@ $menus = array('法階昇進関係','住職請願関係','その他');
   print('<dt><br>年齢を入力してください。</dt><br>');//年齢の入力
   
   for ($i =0;$i < count($age);$i++){
-    print('<input type="radio" name="age" value="'.$age[$i].'"');
+    print('<input type="radio" name="age" value="'.$age[$i][0].'"');
     //if ($age[$i] === $_SESSION['age']) { print(' checked');}
     print(' />');
-    print($age[$i].'</label><br>');
+    print($age[$i][0].'</label><br>');
   }
   print('<br><br>');
 ?>
