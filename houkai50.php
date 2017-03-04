@@ -19,24 +19,39 @@ if (isset($_SESSION['houkai_bef'])) {               //現在法階エラー処�
       break;}
     }
     }else{
-      $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
+      $errors[] = '現在の法階を決められた選択肢の中から選択してください。';
 }
 
 if (isset($_SESSION['houkai_aft'])) {               //昇進後法階エラー処理
   foreach ($opts as $hoka) {
     if (!in_array($_SESSION['houkai_aft'], $opts)) {
-      $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
+      $errors[] = '昇進後の法階をを決められた選択肢の中から選択してください。';
       break;}
     }
     }else{
-      $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
+      $errors[] = '昇進後を決められた選択肢の中から選択してください。';
 }
 
-if (($_SESSION['age']==='') ){              //年齢エラー処理
+if (($_SESSION['age']=='') ){              //年齢エラー処理、セット
   $errors[] = '年齢を決められた選択肢の中から選択してください。';
+  }else{
+  for ($i =0;$i < count($age);$i++){ 
+    
+    if($_SESSION['age']==$age[$i][0]){     
+      $sou_age = $age[$i][1];
+    }
+  }
 }
-if (($_SESSION['soudoureki']==='') ){              //僧堂歴エラー処理
+if (($_SESSION['soudoureki']=='') ){              //僧堂歴エラー処理、セット
   $errors[] = '僧堂歴を決められた選択肢の中から選択してください。';
+  }else{
+  for ($i =0;$i < count($soudoureki);$i++){ 
+    
+    if($_SESSION['soudoureki']==$soudoureki[$i][0]){     
+      $sou_soudou = $soudoureki[$i][1];
+    }
+  }  
+
 }
 
 for($i =0;$i < count($opts);$i++){
@@ -48,7 +63,7 @@ for($i =0;$i < count($opts);$i++){
   //print('$af');
   
 }
-if($be <= $af){$errors[] = '入力に間違いがあります。';}  //法階昇進の順序チェック
+if($be <= $af){$errors[] = '法階の入力に間違いがあります。';}  //法階昇進の順序チェック
 
 if (count($errors) > 0) {
   die(implode('<br />', $errors).
@@ -59,7 +74,7 @@ if (count($errors) > 0) {
 <?php
                                                         //オブジェクト作成
 $temple = new Temple($_SESSION['houkai_bef'],$_SESSION['houkai_aft'],
-  $_SESSION['soudoureki'],$_SESSION['age'])
+$sou_soudou ,$sou_age)
 
 
 ?>
@@ -73,13 +88,16 @@ $temple = new Temple($_SESSION['houkai_bef'],$_SESSION['houkai_aft'],
 <header>
     <h1>手続きサポートサイト50</h1>
 
-<?php                            
+<?php    
+                          
                                  //提出書類
   print('<dt><br>提出書類</dt>');
   print($temple->get_houkai_bef().'<br>');
   print($temple->get_houkai_aft().'<br>');
-  print($temple->get_soudoureki().'<br>');
+  
   print($temple->get_age().'<br>');
+  print($temple->get_soudoureki().'<br>');
+  
 ?>
 </header>
 <body>

@@ -51,9 +51,9 @@
         $this->soudoureki = $soudoureki;
         $this->age = $age;
     }
-    function sethoukai($houkai) {
-        $this->houkai = (string)filter_var($houkai);
-    }
+    //function sethoukai($houkai) {
+       // $this->houkai = (string)filter_var($houkai);
+    //}
     function get_houkai_bef() {
         return $this->houkai_bef;
     } 
@@ -69,6 +69,14 @@
     function get_age() {
         return $this->age;
     } 
+    
+    
+    function age_check($houkai_aft,$age){
+        switch ($houkai_aft){
+            case '特住': int($age) ;
+
+        }
+    }
  }
 
 
