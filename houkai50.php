@@ -12,25 +12,27 @@ if (isset($_POST['age']) === TRUE) { $_SESSION['age'] = $_POST['age']; }
 $errors=array();                                     //エラー処理
 $opts = array('特住','歴住','再住','前住','住持','東堂','西堂','塔司','座元','首座','蔵主','侍者','沙弥');  //エラー処理
 
-if (isset($_SESSION['houkai_bef'])) {
+if (isset($_SESSION['houkai_bef'])) {               //現在法階エラー処理
   foreach ($opts as $hoka) {
     if (!in_array($_SESSION['houkai_bef'], $opts)) {
       $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
       break;}
-  }
-}else{
-  $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
+    }
+    }else{
+      $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
 }
 
-if (isset($_SESSION['houkai_aft'])) {
+if (isset($_SESSION['houkai_aft'])) {               //昇進後法階エラー処理
   foreach ($opts as $hoka) {
     if (!in_array($_SESSION['houkai_aft'], $opts)) {
-      $errors[] = '昇進後の法階をを決められた選択肢の中から選択してください。';
+      $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
       break;}
-  }
-}else{
-  $errors[] = '昇進後の法階をを決められた選択肢の中から選択してください。';
+    }
+    }else{
+      $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
 }
+
+
 for($i =0;$i < count($opts);$i++){
   if($opts[$i] == $_SESSION['houkai_bef']) $be=$i;
    //print('$be');
@@ -40,7 +42,7 @@ for($i =0;$i < count($opts);$i++){
   //print('$af');
   
 }
-if($be <= $af){$errors[] = '入力に間違いがあります。';}  
+if($be <= $af){$errors[] = '入力に間違いがあります。';}  //法階昇進の順序チェック
 
 if (count($errors) > 0) {
   die(implode('<br />', $errors).
