@@ -32,14 +32,11 @@ if (isset($_SESSION['houkai_aft'])) {               //昇進後法階エラー�
       $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
 }
 
-if (isset($_SESSION['age'])) {               //年齢エラー処理
-  foreach ($opts as $hoka) {
-    if (!in_array($_SESSION['houkai_aft'], $opts)) {
-      $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
-      break;}
-    }
-    }else{
-      $errors[] = '現在の法階をを決められた選択肢の中から選択してください。';
+if (($_SESSION['age']==='') ){              //年齢エラー処理
+  $errors[] = '年齢を決められた選択肢の中から選択してください。';
+}
+if (($_SESSION['soudoureki']==='') ){              //僧堂歴エラー処理
+  $errors[] = '僧堂歴を決められた選択肢の中から選択してください。';
 }
 
 for($i =0;$i < count($opts);$i++){
@@ -61,7 +58,8 @@ if (count($errors) > 0) {
 
 <?php
                                                         //オブジェクト作成
-$temple = new Temple($_SESSION['houkai_bef'],$_SESSION['houkai_aft'],$_SESSION['soudoureki'],$_SESSION['age'])
+$temple = new Temple($_SESSION['houkai_bef'],$_SESSION['houkai_aft'],
+  $_SESSION['soudoureki'],$_SESSION['age'])
 
 
 ?>

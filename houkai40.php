@@ -58,7 +58,7 @@ $menus = array('法階昇進関係','住職請願関係','その他');
   
   for ($i =0;$i < count($age);$i++){
     print('<input type="radio" name="age" value="'.$age[$i][0].'"');
-    //if ($age[$i] === $_SESSION['age']) { print(' checked');}
+    if ($age[$i][0] === $_SESSION['age']) { print(' checked');}
     print(' />');
     print($age[$i][0].'</label><br>');
   }
@@ -70,7 +70,7 @@ $menus = array('法階昇進関係','住職請願関係','その他');
   print('<br><br>');
   for ($i =0;$i < count($soudoureki);$i++){  
     print('<input type="radio" name="soudoureki" value="'.$soudoureki[$i][0].'"');
-  //  if ($soudoureki[$i] === $_SESSION['soudoureki']) { print(' checked');}
+    if ($soudoureki[$i][0] === $_SESSION['soudoureki']) { print(' checked');}
     print(' />');
     print($soudoureki[$i][0].'</label><br>');
 
