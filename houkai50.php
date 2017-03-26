@@ -102,6 +102,69 @@ $sou_soudou ,$sou_age)
 ?>
 </header>
 <body>
+  <h3>手続き明細</h3>
+
+<div>
+<?php                               
+  $houkai_gizai = 0;                 //初期化
+  $kousi = 0;
+  $zogen = 8;
+  $shoumei = 0;
+                                       //該当法階の決定
+  for ($i =0;$i < count($houkai);$i++){ 
+    
+    if($_POST['houkai_bef']==$houkai[$i][0]){//現在の法階
+      $start=$i;
+    }
+    if($_POST['houkai_aft']==$houkai[$i][0]){//昇進後の法階
+      $end=$i;
+    }
+  }                                            //法階昇進のタイトル表示
+  print('<'.$houkai[$start][0].' から '.$houkai[$end][0].'> の法階昇進');
+  print('<br>');
+
+  for($j=$end;$j < $start;$j++){         //法階義財合計算出
+     $houkai_gizai += (int)$houkai[$j][1];
+     $kousi += (int)$houkai[$j][2];
+     print('<li>法階義財('.$houkai[$j][0].') : '.(int)$houkai[$j][1].'</li>');
+     print('<li>毎歳香資('.$houkai[$j][0].') : '.(int)$houkai[$j][2].'</li>');
+     
+  }
+                                              //必要書類表示
+  if (isset($_SESSION['shorui[]'])) {
+   foreach ($_SESSION['shorui[]'] as $sho2) {
+     
+      if($sho2===$shorui2[0][0]){
+        print('<li>必要書類('.$shorui2[0][0].') :'.$shorui2[0][1]);
+        $shoumei += $shorui2[0][1];        //必要書類料加算
+      }
+      if($sho2===$shorui2[1][0]){
+        print('<li>必要書類('.$shorui2[1][0].') :'.$shorui2[1][1]);
+       $shoumei += $shorui2[1][1];
+      }
+   }
+  }   
+    print('<br>');
+    print('<br><li>法階義財合計 : '.$houkai_gizai.'</li>');
+    print('<li>毎歳香資合計 : '.$kousi.'</li>');
+    print('<li>証明書類合計 : '.$shoumei.'</li>');
+    print('<li>　　　　合計 : '.($kousi + $houkai_gizai + $shoumei).'</li>');
+?>
+</div>
+<div>
+<?php                            
+                                 //提出書類
+  print('<dt><br>提出書類</dt>');
+  if($start > $zogen)print('<dd>法階稟承請願書</dd>');
+  if($start > $zogen && $zogen >= $end){
+    print('<dd>座元職請願書</dd>');
+  }
+  if($start <= $zogen)print('<dd>法階昇進請願書</dd>');
+ 
+?>
+</div>                                       
+<input type="button" value="前へ" onclick="location.href='houkai0.php'";/>
+
 
 
 <input type="button" value="前へ" onclick="location.href='houkai40.php'";/>
