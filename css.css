@@ -1,6 +1,6 @@
 p { color:blue;}
 
-body{text-align : center;
+body{text-align : left;
     background-color:#faf0e6;
 }
 
@@ -20,7 +20,8 @@ h2{
 }
 
 h3{
-    font-size: 16px;
+    color: #8b4513;
+    font-size: 30px;
     line-height: 22px;
 }
 
@@ -32,16 +33,16 @@ h3{
 }
 
 #button{
-    /*background-color: #11ff13;
+    background-color: #11ff13;
     color:#ffffff;
     font-size: 50px;
     line-height: 60px;
     width:70px;
-    height:70px; */
+    height:70px; 
 }
 
 .box{
-    text-align : center;
+    text-align : left;
     width:300px;
     height:200px;
     padding:10px;

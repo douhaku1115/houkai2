@@ -58,11 +58,10 @@
     private $shorui;   
 
 
-    public function __construct($houkai_bef,$houkai_aft,$soudoureki,$age) {
+    public function __construct($houkai_bef,$houkai_aft,$age) {
         $this->houkai_bef = $houkai_bef;
         $this->houkai_aft = $houkai_aft;
         //$this->houkai_gizai = $houkai_gizai;
-        $this->soudoureki = $soudoureki;
         $this->age = $age;
     }
     //function sethoukai($houkai) {
@@ -74,9 +73,7 @@
       function get_houkai_aft() {
         return $this->houkai_aft;
     } 
-     function get_soudoureki() {
-        return $this->soudoureki;
-    } 
+     
      function gethoukai_gizai() {
         return $this->houkai_gizai;
     }  
@@ -84,97 +81,7 @@
         return $this->age;
     } 
     
-    function soudou_check($houkai_aft,$soudou){
-        switch ($soudou){
-            case 2.5:
-                switch ($houkai_aft){
-                    case '特住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '歴住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '再住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '前住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '住持':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    
-                } ;break;
-            case 2:
-                switch ($houkai_aft){
-                    case '特住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '歴住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '再住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '前住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '住持':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '東堂':  
-                        print('西堂職稟承後３年の必要があります。<br>');break;
-                  };break;
-            case 1.5:
-                switch ($houkai_aft){
-                    case '特住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '歴住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '再住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '前住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '住持':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '東堂':  
-                        print('西堂職稟承後３年の必要があります。<br>');break;
-                    case '西堂':  
-                        print('塔司職稟承後１年の必要があります。<br>');break;
-                  };break;
-            case 1:
-                switch ($houkai_aft){
-                    case '特住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '歴住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '再住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '前住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '住持':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '東堂':  
-                        print('西堂職稟承後３年の必要があります。<br>');break;
-                    case '西堂':  
-                        print('塔司職稟承後１年の必要があります。<br>');break;
-                    case '塔司':  
-                        print('座元職稟承後１年の必要があります。<br>');break;
-                  };break;
-            case 0.5:
-                switch ($houkai_aft){
-                    case '特住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '歴住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '再住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '前住':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '住持':  
-                        print('東堂職稟承後５年の必要があります。<br>');break;
-                    case '東堂':  
-                        print('西堂職稟承後３年の必要があります。<br>');break;
-                    case '西堂':  
-                        print('塔司職稟承後１年の必要があります。<br>');break;
-                    case '塔司':  
-                        print('座元職稟承後１年の必要があります。<br>');break;
-                    case '座元':  
-                        print('首座職稟承後１年の必要があります。<br>');break;
-                  };break;
-
-            }
-    }
+    
 
     function age_check($houkai_aft,$age){
         switch ($houkai_aft){

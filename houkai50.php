@@ -5,7 +5,7 @@ session_start();
 if (isset($_POST['houkai_bef']) === TRUE) { $_SESSION['houkai_bef'] = $_POST['houkai_bef']; }
 if (isset($_POST['houkai_aft']) === TRUE) { $_SESSION['houkai_aft'] = $_POST['houkai_aft']; }
 if (isset($_POST['shorui']) === TRUE) { $_SESSION['shorui[]'] = $_POST['shorui']; }
-if (isset($_POST['soudoureki']) === TRUE) { $_SESSION['soudoureki'] = $_POST['soudoureki']; }
+
 if (isset($_POST['age']) === TRUE) { $_SESSION['age'] = $_POST['age']; }
 
 
@@ -42,17 +42,7 @@ if (($_SESSION['age']=='') ){              //年齢エラー処理、セット
     }
   }
 }
-if (($_SESSION['soudoureki']=='') ){              //僧堂歴エラー処理、セット
-  $errors[] = '僧堂歴を決められた選択肢の中から選択してください。';
-  }else{
-  for ($i =0;$i < count($soudoureki);$i++){ 
-    
-    if($_SESSION['soudoureki']==$soudoureki[$i][0]){     
-      $sou_soudou = $soudoureki[$i][1];
-    }
-  }  
 
-}
 
 for($i =0;$i < count($opts);$i++){
   if($opts[$i] == $_SESSION['houkai_bef']) $be=$i;
@@ -74,7 +64,7 @@ if (count($errors) > 0) {
 <?php
                                                         //オブジェクト作成
 $temple = new Temple($_SESSION['houkai_bef'],$_SESSION['houkai_aft'],
-$sou_soudou ,$sou_age)
+$sou_age)
 
 
 ?>
@@ -95,10 +85,8 @@ $sou_soudou ,$sou_age)
   print('現法階 :'.$temple->get_houkai_bef().'<br>');
   print('昇進法階 :'.$temple->get_houkai_aft().'<br>');
   print('年齢 :'.$temple->get_age().'<br>');
-  print('年齢 :'.$sou_age.'<br>');
-  print('僧堂歴 :'.$temple->get_soudoureki().'<br>');
   $temple->age_check($temple->get_houkai_aft(),$sou_age);
-  $temple->soudou_check($temple->get_houkai_aft(),$sou_soudou);
+  
 ?>
 </header>
 <body>
@@ -113,7 +101,7 @@ $sou_soudou ,$sou_age)
                                        //該当法階の決定
   for ($i =0;$i < count($houkai);$i++){ 
     
-    if($_POST['houkai_bef']==$houkai[$i][0]){//現在の法階
+    if($_POST['houkai_bef']==$houkai[$i][0]){//現在の法階を調べる
       $start=$i;
     }
     if($_POST['houkai_aft']==$houkai[$i][0]){//昇進後の法階
@@ -163,10 +151,6 @@ $sou_soudou ,$sou_age)
  
 ?>
 </div>                                       
-<input type="button" value="前へ" onclick="location.href='houkai0.php'";/>
-
-
-
 <input type="button" value="前へ" onclick="location.href='houkai40.php'";/>
 <input type="submit" value="次へ" onclick="location.href='houkai60.php'";/>
 
