@@ -82,11 +82,11 @@ $sou_age)
                           
                                  //提出書類
   print('<dt><br>入力情報</dt><br>');
-  print('現法階 :'.$temple->get_houkai_bef().'<br>');
-  print('昇進法階 :'.$temple->get_houkai_aft().'<br>');
-  print('年齢 :'.$temple->get_age().'<br>');
+  print('現法階　 : '.$temple->get_houkai_bef().'<br>');
+  print('昇進法階 : '.$temple->get_houkai_aft().'<br>');
+  print('年齢　　 : '.$temple->get_age().'<br>');
   $temple->age_check($temple->get_houkai_aft(),$sou_age);
-  
+   
 ?>
 </header>
 <body>
@@ -139,19 +139,51 @@ $sou_age)
     print('<li>　　　　合計 : '.($kousi + $houkai_gizai + $shoumei).'</li>');
 ?>
 </div>
+<form action="houkai60.php" method="post">
 <div>
-<?php                            
+<?php         
+
+                     
                                  //提出書類
   print('<dt><br>提出書類</dt>');
   if($start > $zogen)print('<dd>法階稟承請願書</dd>');
+  if($start <= $zogen)print('<dd>法階昇進請願書</dd>');
   if($start > $zogen && $zogen >= $end){
     print('<dd>座元職請願書</dd>');
+
+    print('<br><dt>住職。副住職請願の手続きが必要です。</dt>'); //住職。副住職請願の手続き
+    print('<dt>いずれかをチェックして下さい。</dt>');       
+    print('<br>');
+      
+   for ($i =0;$i < count($tera);$i++){  
+   print('<dd><input type="radio" name="tera" value="'.$tera[$i][0].'"');
+   if ($tera[$i][0] === $_SESSION['tera']) { print(' checked');}
+   print(' />');
+   print($tera[$i][0].'</label>');
+
+  } 
+
+  print('<br>');
+  print('<br><dt>寺班を入力してください。</dt>');       //寺班の入力
+  print('<br>');
+  for ($i =0;$i < count($jihan);$i++){  
+    print('<input type="radio" name="jihan" value="'.$jihan[$i][0].'"');
+    if ($jihan[$i][0] === $_SESSION['jihan']) { print(' checked');}
+    print(' />');
+    print($jihan[$i][0].'</label>');
+
   }
-  if($start <= $zogen)print('<dd>法階昇進請願書</dd>');
+  
+
+
+  }
+  
  
 ?>
-</div>                                       
-<input type="button" value="前へ" onclick="location.href='houkai40.php'";/>
+</div>  
+                                   
+<input type="button" value="前へ" onclick="location.href='houkai40.php'";/> 
+  
 <input type="submit" value="次へ" onclick="location.href='houkai60.php'";/>
 
 </body>

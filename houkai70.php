@@ -21,6 +21,17 @@
         array('満8歳以上',8),
         array('満5歳以上',5),
         );
+
+    $jushoku = array(
+        array('住職請願','0'),
+        array('副住職請願','1'),
+    );
+
+     $tera = array(
+        array('住職請願','0'),
+        array('副住職請願','1'),
+    );
+
     $jihan = array(
             array('特例地','500000'),
             array('別格地','350000'),
@@ -31,7 +42,7 @@
             array('4等地','35000'),
             array('5等地','25000'),
             array('6等地','15000'),
-            array('7等地','10000')
+            array('7等地','10000'),
     );
     $shorui2 = array(
     array('証明書','1000'),
@@ -56,7 +67,7 @@
     private $age;
     private $juushoku;
     private $shorui;   
-
+    private $jihan;
 
     public function __construct($houkai_bef,$houkai_aft,$age) {
         $this->houkai_bef = $houkai_bef;
@@ -80,8 +91,12 @@
     function get_age() {
         return $this->age;
     } 
-    
-    
+    function get_jihan() {
+        return $this->jihan;
+    } 
+    function set_jihan($jihan) {
+         $this->jihan = $jihan;
+    } 
 
     function age_check($houkai_aft,$age){
         switch ($houkai_aft){

@@ -6,10 +6,6 @@ session_start();
 ?>
 
 
-<?php
-
-$menus = array('法階昇進関係','住職請願関係','その他');
-?>
 
 <html>
 <head>
@@ -68,8 +64,7 @@ $menus = array('法階昇進関係','住職請願関係','その他');
 
 
 <?php   
-  //$_SESSION['shorui[]']= array();                //$_SESSION['animal']を初期化
-  print('<dt><br>必要書類にチェックを入力してください。</dt>');//必要書類の入力
+    print('<dt><br>必要書類にチェックを入力してください。</dt>');//必要書類の入力
   
   foreach ($shorui as $shor ){
     print('<dd><input type="checkbox" name="shorui[]" value="'.$shor.'"');
