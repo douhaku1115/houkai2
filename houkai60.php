@@ -24,22 +24,35 @@ if (isset($_POST['tera']) === TRUE) { $_SESSION['tera'] = $_POST['tera']; }
     <h1>手続きサポートサイト60</h1>
 
 <?php                            
-                                 //提出書類
-  print('<dt><br>手続き : '.$_SESSION['tera']);
-  print('<dt>寺班 　: '.$_SESSION['jihan']);
-  
-  
-  
-
-
   
   ?>
 </header>
 <body>
     <?php
+  print('<dt><br>手続き : '.$_SESSION['tera']);   //提出書類
+  print('<dt>寺班 　: '.$_SESSION['jihan']);
+  
+  for ($i =0;$i < count($jihan);$i++){    //寺班を調べる
     
-   
+    if($_SESSION['jihan'] ==$jihan[$i][0]){
+      $gizai=$jihan[$i][1];
+    }
+  } 
 
+  for ($i =0;$i < count($tera);$i++){    //住職か副住職かを調べる
+    
+    if($_SESSION['tera'] ==$tera[$i][0]){
+      $seigan=$i;
+     }
+  } 
+  if($seigan == 1){$gizai = $gizai / 2 ;}  //副住職なら半分
+  print('<br><br>');
+  print('<br>*********************</br>');
+
+  print('<dt><br>住職義財　　　　：'.$gizai);   
+  print('<dt>法脈相承式経営料 : 85000');   //法脈相承式経営料
+  print('<dt>合計　　　　　　 : '.($gizai + 85000));   
+  print('<br><br>');
 
     ?>
 <input type="button" value="前へ" onclick="location.href='houkai40.php'";/>

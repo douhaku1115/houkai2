@@ -22,11 +22,6 @@
         array('満5歳以上',5),
         );
 
-    $jushoku = array(
-        array('住職請願','0'),
-        array('副住職請願','1'),
-    );
-
      $tera = array(
         array('住職請願','0'),
         array('副住職請願','1'),
