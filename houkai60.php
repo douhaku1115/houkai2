@@ -10,6 +10,21 @@ session_start();
 if (isset($_POST['jihan']) === TRUE) { $_SESSION['jihan'] = $_POST['jihan']; }
 if (isset($_POST['jushoku']) === TRUE) { $_SESSION['jushoku2'] = $_POST['jushoku']; }
 if (isset($_POST['tera']) === TRUE) { $_SESSION['tera'] = $_POST['tera']; }
+
+$errors=array();                                     //エラー処理
+$opts = array('住職請願','副住職請願');
+$opts2 = array('特例地','別格地','準別格地','1等地','2等地','3等地','4等地','5等地','6等地','7等地');
+
+if (($_SESSION['jihan']=='') ){              //年齢エラー処理、セット
+  $errors[] = '寺班を決められた選択肢の中から選択してください。';
+  }
+if (($_SESSION['tera']=='') ){              //年齢エラー処理、セット
+  $errors[] = '住職。副住職請願を決められた選択肢の中から選択してください。';
+  }
+if (count($errors) > 0) {
+  die(implode('<br />', $errors).
+    '<br />[<a href="houkai50.php">戻る</a>]');
+}
 ?>
 
 
