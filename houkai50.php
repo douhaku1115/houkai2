@@ -179,18 +179,20 @@ $sou_age)
     print($jihan[$i][0].'</label>');
 
   }
-  
-
-
-  }
-  
- 
-?>
+    }
+ ?>
 </div>  
-                                   
+
 <input type="button" value="前へ" onclick="location.href='houkai40.php'";/> 
+<?php 
+ if($start > $zogen && $zogen >= $end){    //座元職請願書チェック
+ echo '<input type="button" value="次へ" onclick="location.href=\'houkai60.php\'";/>';
+ //<input type="submit" value="次へ" onclick="location.href='houkai60.php'";/>
+ }
+ ?>                                
+
   
-<input type="submit" value="次へ" onclick="location.href='houkai60.php'";/>
+
 
 </body>
 </html>
