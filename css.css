@@ -25,6 +25,7 @@ h3{
     line-height: 22px;
 }
 
+
 .container{
     /*background-color: #000000;
     color:#ffffff;*/
@@ -49,4 +50,7 @@ h3{
     border:5px solid #000000;
     margin:20px;
     background-color: #faf0e6;
+}
+.red{
+  color: orangered;  
 }

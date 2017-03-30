@@ -49,13 +49,26 @@ if (isset($_POST['tera']) === TRUE) { $_SESSION['tera'] = $_POST['tera']; }
   print('<br><br>');
   print('<br>*********************</br>');
 
-  print('<dt><br>住職義財　　　　：'.$gizai);   
-  print('<dt>法脈相承式経営料 : 85000');   //法脈相承式経営料
-  print('<dt>合計　　　　　　 : '.($gizai + 85000));   
+ // print('<dt><br>住職義財　　　　：'.$gizai);   
+  //print('<dt>法脈相承式経営料 : 85000');   //法脈相承式経営料
+  //print('<dt>合計　　　　　　 : '.($gizai + 85000));   
   print('<br><br>');
 
-    ?>
+  print('<li> 住職義財　　　　 : '.$gizai.'</li>');
+  print('<li>法脈相承式経営料 : '.'85000</li>');
+  print('<br><li>法階義財合計　　 : '.$_SESSION['houkai'].'</li>');
+  print('<li>毎歳香資合計 　　: '.$_SESSION['maisai'].'</li>');
+  print('<li>証明書類合計 　　: '.$_SESSION['shoumei'].'</li>');
+  print('<li>　　　　合計 　　: '.($_SESSION['houkai'] + $_SESSION['maisai'] + 
+  $_SESSION['shoumei'] + $gizai + 85000).'</li>');
+  
+  print('<br>');
+   ?>
+  
 <input type="button" value="前へ" onclick="location.href='houkai40.php'";/>
-
+ <div id="branding">
+    <p>手続きサポートサイト</p>
+</div>
+<div class="red">宗務本院</div>
 </body>
 </html>

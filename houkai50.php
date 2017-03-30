@@ -137,6 +137,10 @@ $sou_age)
     print('<li>毎歳香資合計 : '.$kousi.'</li>');
     print('<li>証明書類合計 : '.$shoumei.'</li>');
     print('<li>　　　　合計 : '.($kousi + $houkai_gizai + $shoumei).'</li>');
+
+    $_SESSION['maisai'] = $kousi;      //セッションに代入
+    $_SESSION['shoumei'] = $shoumei; 
+    $_SESSION['houkai'] = $houkai_gizai;
 ?>
 </div>
 <form action="houkai60.php" method="post">
@@ -150,11 +154,13 @@ $sou_age)
   if($start <= $zogen)print('<dd>法階昇進請願書</dd>');
   if($start > $zogen && $zogen >= $end){
     print('<dd>座元職請願書</dd>');
+    
 
     print('<br><dt>住職。副住職請願の手続きが必要です。</dt>'); //住職。副住職請願の手続き
     print('<dt>いずれかをチェックして下さい。</dt>');       
     print('<br>');
-      
+    
+     
    for ($i =0;$i < count($tera);$i++){  
    print('<dd><input type="radio" name="tera" value="'.$tera[$i][0].'"');
    if ($tera[$i][0] === $_SESSION['tera']) { print(' checked');}
