@@ -23,7 +23,7 @@ if (($_SESSION['tera']=='') ){              //年齢エラー処理、セット
   }
 if (count($errors) > 0) {
   die(implode('<br />', $errors).
-    '<br />[<a href="houkai50.php">戻る</a>]');
+    '<br />[<a href="houkai40.php">戻る</a>]');
 }
 ?>
 
