@@ -98,6 +98,7 @@ $sou_age)
   $kousi = 0;
   $zogen = 8;
   $shoumei = 0;
+   $shuzo = 9;
                                        //該当法階の決定
   for ($i =0;$i < count($houkai);$i++){ 
     
@@ -150,7 +151,7 @@ $sou_age)
                      
                                  //提出書類
   print('<dt><br>提出書類</dt>');
-  if($start > $zogen)print('<dd>法階稟承請願書</dd>');
+  if($start > $shuzo)print('<dd>法階稟承請願書</dd>');
   if($start <= $zogen)print('<dd>法階昇進請願書</dd>');
   if($start > $zogen && $zogen >= $end){
     print('<dd>座元職請願書</dd>');
@@ -187,10 +188,21 @@ $sou_age)
  
 ?>
 </div>  
-                                   
+ <?php 
+ if($start > $zogen && $zogen >= $end){
+ 
+ //echo '<input type="button" value="次へ" onclick="location.href=\'houkai60.php\'";/>';
+//print('<input type="button" value="test" onclick="location.href=\'houkai60.php\'";/>');
+ }
+ ?>                                  
 <input type="button" value="前へ" onclick="location.href='houkai40.php'";/> 
-  
-<input type="submit" value="次へ" onclick="location.href='houkai60.php'";/>
+ <?php 
+ if($start > $zogen && $zogen >= $end){ 
+    print'<input type="submit" value="次へ" onclick=" houkai60.php">';
+}
+?>   
+
+
 
 </body>
 </html>
